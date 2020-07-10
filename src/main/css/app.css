@@ -2,6 +2,12 @@ i{
     font-family: 'Font Awesome';
 }
 
+.logo-text{
+    font-family: 'Gugi', cursive;
+    font-size: 2.6rem;
+    margin-bottom: 0px
+}
+
 body{
     margin: 0px;
     background-color: #424342;

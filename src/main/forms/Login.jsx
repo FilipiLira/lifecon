@@ -16,6 +16,7 @@ const style = {
     maxHeight: '500px',
     backgroundColor: '#5b5b5b',
     borderRadius: '0.5rem',
+    boxShadow: '0.5px 0.5px 20px rgb(74, 74, 74)'
 }
 
 export default class Login extends React.Component {
