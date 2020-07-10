@@ -12,7 +12,7 @@ const styleIcons = {
     fontSize: '2rem'
 }
 
-const  styleTitle = {
+const styleTitle = {
     textAlign: 'center'
 }
 
@@ -23,49 +23,60 @@ const emailIcon = <i className="fa fa-at" aria-hidden="true" style={styleIcons}>
 export default class Form extends React.Component {
     constructor(props) {
         super(props)
-        this.setValueInput = this.setValueInput.bind(this)
+        this.inputControlName = this.inputControlName.bind(this)
+        this.inputControlPassword = this.inputControlPassword.bind(this)
+        // this.inputControlEmail = this.inputControlEmail.bind(this)
+        // this.inputControlPasswordConfirm = this.inputControlPasswordConfirm.bind(this)
         this.clickEvent = this.clickEvent.bind(this)
         this.state = {
             inputName: '',
-            enviado: false,
-            exibirEmail: this.props.exibirEmail,
+            inputPassword: '',
+            inputPasswordConfirm: '',
+            exibirCadastro: this.props.exibirCadastro,
             enviado: false
         }
     }
 
-    setValueInput(e) {
+    inputControlName(e) {
         this.setState({ inputName: e.target.value })
-        console.log(this.state.inputName)
     }
 
-    // setValuePassword(e){
-    //     this.setState({inputPassword: e.target.val})
-    // }
+    inputControlPassword(e) {
+        this.setState({ inputPassword: e.target.value })
+    }
 
-    clickEvent(e) {
+    clickEvent(e, tipoElement = '') {
         e.preventDefault()
-        this.setState({enviado: true})
-        
+        tipoElement != '' ? this.setState({ exibirEmail: true }) : this.setState({ enviado: true })
     }
 
     render() {
 
-        console.log(this.state.exibirEmail)
-        let inputemail = this.state.exibirEmail == true ? <Input type='email' id='email' name='email' icon={emailIcon} placeh='Email' controleEstado={this.mudaValorInput} /> : ''
         if (this.state.enviado == false) {
             return (
                 <form style={styleForm}>
-                    <Input type='text' id='name' name='name' icon={userIcon} placeh='Nome' controleEstado={this.mudaValorInput} stateVal={this.setValueInput} />
-                    {inputemail}
-                    <Input type='password' label='Senha' id='password' icon={keyIcon} placeh='Senha' />
+                    <Input type='text' id='name' name='name' icon={userIcon} placeh='Nome' controleEstado={this.mudaValorInput} stateVal={this.inputControlName} value={this.state.inputName} />
+                    <Input type='password' label='Senha' id='password' icon={keyIcon} placeh='Senha' stateVal={this.inputControlPassword} value={this.state.inputPassword} />
                     <LoginFormBtn clickEvent={this.clickEvent} />
+                    <div className="row justify-content-center">
+                        <p>faça login ou <a href='' className="text-light" onClick={e => this.state.exibirCadastro(e, true)}>registre-se</a></p>
+                    </div>
+                    <div className="row justify-content-center">
+                        <p>Selecione sua rede para fazer login</p>
+                    </div>
                 </form>
             )
-        } 
+        }
 
         return (
             <form style={styleForm}>
                 <h2 style={styleTitle}>Bem vindo {this.state.inputName}!</h2>
+                <div className="row justify-content-center">
+                    <p>faça login ou <a href='' className="text-light" onClick={e => this.clickEvent(e, 'botaoRegistr')}>registre-se</a></p>
+                </div>
+                <div className="row justify-content-center">
+                    <p>Selecione sua rede para fazer login</p>
+                </div>
             </form>
         )
     }

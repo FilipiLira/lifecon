@@ -4,6 +4,7 @@ import Form from '../forms/FormLogin'
 import SocialBtn from '../components/SocialLoginBtn'
 import SocialBar from '../components/SocialIconsBar'
 import FormLogin from '../forms/FormLogin'
+import FormCadastro from '../forms/FormCadastro'
 
 
 const style = {
@@ -12,7 +13,7 @@ const style = {
     justifyContent: 'space-between',
     height: '100%',
     width: '400px',
-    height: '500px',
+    maxHeight: '500px',
     backgroundColor: '#5b5b5b',
     borderRadius: '0.5rem',
 }
@@ -21,31 +22,26 @@ export default class Login extends React.Component {
 
     constructor(props) {
         super(props)
-        this.clickEvent = this.clickEvent.bind(this)
+        this.exibirCadastro = this.exibirCadastro.bind(this)
         this.state = {
-            exibirInputEmail: false,
+            exibirCadastro: false,
         }
     }
 
-    clickEvent(e) {
+    exibirCadastro(e, exibir) {
         e.preventDefault()
-        this.setState({exibirInputEmail: true})
-        console.log(this.state.exibirInputEmail)
+        exibir ?  this.setState({exibirCadastro: true}) : this.setState({exibirCadastro: false})
+        // console.log(this.state.exibirCadastro)
     }
 
     render() {
         
+        let form = !this.state.exibirCadastro ? <FormLogin exibirCadastro={this.exibirCadastro}/> : <FormCadastro/>
         return (
             <div style={style}>
                 {/* <h2>User login</h2> */}
                 <Avatar />
-                <FormLogin exibirEmail={this.state.exibirInputEmail}/>
-                <div className="row justify-content-center">
-                    <p>faça login ou <a href='' className="text-light" onClick={ e => this.clickEvent(e) }>registre-se</a></p>
-                </div>
-                <div className="row justify-content-center">
-                    <p>Selecione sua rede para fazer login</p>
-                </div>
+                {form}
                 <SocialBar>
                     <SocialBtn classs={'fa fa-google'} />
                     <SocialBtn classs={'fa fa-amazon'} />

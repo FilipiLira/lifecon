@@ -4,14 +4,13 @@ i{
 
 body{
     margin: 0px;
-    height: 900px;
     background-color: #424342;
 }
 
 .custom-container{
     width: 80%;
-    height: 750px;
     margin: auto;
+    margin: 8%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -60,7 +59,7 @@ body{
 
 .column{
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .justify-content-center{
@@ -73,4 +72,28 @@ body{
 
 .text-light{
     color: #149911;
+}
+
+.col-6{
+    width: 50%;
+}
+
+.m-0{
+    margin: 0px;
+}
+
+.mt-1{
+    margin-top: 7px;
+}
+
+.mt-5{
+    margin-top: 70px;
+}
+
+.mb-5{
+    margin-bottom: 50px;
+}
+
+.pr-1{
+    padding-right: 5px;
 }
