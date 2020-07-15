@@ -40,7 +40,7 @@ body{
 }
 
 .social-button:hover{
-    background-color: rgb(20, 153, 17);
+    background-color: #149911;
     color: rgb(36, 35, 35)!important
 }
 
@@ -54,8 +54,17 @@ body{
     color: #149911;
     background-color: #333;
     background-image: none;
-    border: 1px solid rgb(228, 227, 227);
+    border: 1px solid #333;
     border-radius: 4px;
+}
+
+.custom-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #149911;
+    width: 100vw;
+    height: 30px;
 }
 
 .row{

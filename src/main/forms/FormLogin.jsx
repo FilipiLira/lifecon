@@ -55,7 +55,7 @@ export default class Form extends React.Component {
         if (this.state.enviado == false) {
             return (
                 <form style={styleForm}>
-                    <i class="fa fa-spinner"></i>
+                    <i className="fa fa-spinner"></i>
                     <Input type='text' id='name' name='name' icon={userIcon} placeh='Nome' controleEstado={this.mudaValorInput} stateVal={this.inputControlName} value={this.state.inputName} />
                     <Input type='password' label='Senha' id='password' icon={keyIcon} placeh='Senha' stateVal={this.inputControlPassword} value={this.state.inputPassword} />
                     <LoginFormBtn clickEvent={this.clickEvent} />

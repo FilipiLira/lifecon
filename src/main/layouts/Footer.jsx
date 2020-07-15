@@ -11,7 +11,7 @@ const footStyle = {
 const footerStyle = {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '100%',
     height: '30px',
     position: 'fixed',
@@ -25,11 +25,11 @@ export default ( ) => {
     return (
         <div className="foot" style={footStyle}>
               <footer style={footerStyle}>
-                    <IconHouse/>
+                    {/* <IconHouse/> */}
                     <div className="row justify-content-center align-items-center">
                         <p className="logo-text" style={ { textShadow: '0.5px 1.5px 40px #FFF' } }>NOVA<span style={ { fontSize: '0.9rem',  textShadow: '2px 2px 40px #FFF' } }> robotic ideas</span></p>
                     </div>
-                    <P/>
+                    {/* <P/> */}
               </footer>
         </div>
     )
